@@ -1,3 +1,7 @@
+# custom
+.*
+Icon*
+
 # History files
 .Rhistory
 .Rapp.history

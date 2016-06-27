@@ -1,0 +1,93 @@
+Classification automatique
+
+1. On remarque deux groupes en fonction de la petal length
+Au final nous remarquons que deux espèces sont confondues en utilisant l'ACP.
+Nous craignons maintenant qu'elles ne se fassent confondre au moment de notre
+clustering
+
+2. Sans prendre en compte les espèces, on distingue deux groupes de crabs.
+Certaines parties de ces groupes sont plus concentrées, de telle sorte que l'on
+peut deviner 4 éventuels groupes
+En représentant par la suite l'acp en utilisant les couleurs, on distingue les
+quatre groupes. Mais une fois encore, nous risquons d'avoir des difficultés à
+faire des clusters
+
+3.
+On a un tableau de diss
+On veut nous faire toucher du oid qu'il exite une repr qui nous permet de voir
+les individus caractérisés
+
+AFTD : décomposition du tableau de distance comme un produit de deux matrices
+
+Méthode de sammon : même chose mais critère qe l'on optimise n'est pas le même :
+points qui minimisent les distances entre les points de la repr (enfin un truc
+du genre)
+Méthode de cruscan : encore un autre critère : régress isotomique, on veut
+respecter seulement les ordres entre distances. On veut avoir dans la
+représentation finale la ossibilité de changer l'ordre
+
+
+Les deux autres méthodes sont quasi les mêmes que l'AFTD donc osef un peu.
+D'autant plus qu'elles n'améliorent dans notre cas que très peu la repr.
+
+Note : si on utilise cmdscale en utilisant l'argument pour avoir les valeurs
+propres-> on obtient 2à valeurs propres avc certaines négatives.
+
+Matrice 20x20 => Espace ^20 max
+
+> mds = cmdscale(mut, eig=T)
+> str(mds)
+List of 5
+ $ points: num [1:20, 1:2] -6.91 -6.58 -9.85 -10.05 -9.42 ...
+   ..- attr(*, "dimnames")=List of 2
+     .. ..$ : chr [1:20] "Man" "Monkey" "Dog" "Horse" ...
+       .. ..$ : NULL
+        $ eig   : num [1:20] 7446 2262 1546 949 675 ...
+         $ x     : NULL
+          $ ac    : num 0
+           $ GOF   : num [1:2] 0.687 0.697
+           > mds$eig
+            [1]  7.445705e+03  2.261504e+03  1.545843e+03  9.485851e+02
+            6.750423e+02
+             [6]  5.428427e+02  2.907292e+02  9.437905e+01  6.530335e+01
+             3.823952e+01
+             [11]  1.847890e+01  5.771593e+00  2.829321e+00  8.952838e-13
+             -2.399658e+00
+             [16] -1.047824e+01 -1.997258e+01 -3.400408e+01 -4.994780e+01
+             -7.275051e+01
+             >
+
+Valeurs propres négatives : bizarre, difficile d'expliquer
+-> limitation d'appliquer l'AFTD à un tableau qui n'est pas un tableau de
+distances euclidiennes
+
+Ici ce n'est pas un tableau de distance euclidienne donc c'est bizarre
+plusieurs écoles :
+- mettre à 0 négatives
+- si on les mets à zéro : fausse les pourcentages d'inertie expliquée
+- prendre la valeur absolue
+dans le cadre de ce tp on fait ce qu'on veut
+Qualité de la représentation numérique : s'effectue de la même manière que pour
+l'ACP
+
+diagramme de shepard c'est quoi ?
+-> Evaluer graphiquement dij =f(delta(ij))
+
+dist EST DIFFERENT DE as.dist
+NE PAS CONFONDRE
+
+
+EXE2
+
+1. easy
+
+2.
+
+
+
+
+
+
+
+
+
