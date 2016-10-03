@@ -1,6 +1,7 @@
 # custom
 .*
 Icon*
+latex
 
 # History files
 .Rhistory
