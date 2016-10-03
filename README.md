@@ -15,3 +15,4 @@ Implemented :
 * Ascendant Hierarchical Clustering
 * Descendant Hierarchical Clustering
 * K-Means method
+
